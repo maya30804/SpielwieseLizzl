@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizzys Spielwiese</title>
+
+    <!-- PrimeIcons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css" rel="stylesheet">
+
+    <!-- Confetti.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background-color: #9f5ecb;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .names {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .dropzone {
+            padding: 10px;
+            margin: 5px;
+            border: 2px dashed #999;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .correct {
+            background-color: #c8e6c9 !important;
+        }
+
+        .draggable {
+            width: 100px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .nose-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .nose-bar {
+            height: 10px;
+            background-color: rgb(215, 141, 100);
+            position: absolute;
+            left: 140px;
+            top: 188px;
+        }
+
+        .nose-image {
+            position: relative;
+        }
+
+        .slider-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Spiel 1: Ordne die Leute zuu</h2>
+
+    <div class="container">
+        <div class="images">
+            <img src="./media/lizzy.jpg" alt="Person 11" class="draggable" id="person11" draggable="true">
+            <img src="./media/marco.jpg" alt="Person 12" class="draggable" id="person12" draggable="true">
+            <img src="./media/sammy.jpg" alt="Person 13" class="draggable" id="person13" draggable="true">
+            <img src="./media/nico.jpg" alt="Person 14" class="draggable" id="person14" draggable="true">
+            <img src="./media/omaheide.jpg" alt="Person 15" class="draggable" id="person15" draggable="true">
+            <img src="./media/mo.jpg" alt="Person 16" class="draggable" id="person16" draggable="true">
+            <img src="./media/omahertha.jpg" alt="Person 17" class="draggable" id="person17" draggable="true">
+            <img src="./media/opa.jpg" alt="Person 18" class="draggable" id="person18" draggable="true">
+            <img src="./media/maya.jpg" alt="Person 19" class="draggable" id="person19" draggable="true">
+            <img src="./media/megi.jpg" alt="Person 20" class="draggable" id="person20" draggable="true">
+            <img src="./media/melina.jpg" alt="Person 21" class="draggable" id="person21" draggable="true">
+            <img src="./media/papaa.jpg" alt="Person 1" class="draggable" id="person1" draggable="true">
+            <img src="./media/janine.jpg" alt="Person 2" class="draggable" id="person2" draggable="true">
+            <img src="./media/sunny.jpg" alt="Person 3" class="draggable" id="person3" draggable="true">
+            <img src="./media/angelina.jpg" alt="Person 4" class="draggable" id="person4" draggable="true">
+            <img src="./media/kindvonsandra.jpg" alt="Person 5" class="draggable" id="person5" draggable="true">
+            <img src="./media/celine.jpg" alt="Person 6" class="draggable" id="person6" draggable="true">
+            <img src="./media/kaan.jpg" alt="Person 7" class="draggable" id="person7" draggable="true">
+            <img src="./media/malek.jpg" alt="Person 8" class="draggable" id="person8" draggable="true">
+            <img src="./media/mama.jpg" alt="Person 9" class="draggable" id="person9" draggable="true">
+            <img src="./media/juergen.jpg" alt="Person 10" class="draggable" id="person10" draggable="true">
+        </div>
+
+        <div class="names">
+            <div class="dropzone" data-person="person1">Papa</div>
+            <div class="dropzone" data-person="person2">Janine</div>
+            <div class="dropzone" data-person="person3">Sunny</div>
+            <div class="dropzone" data-person="person4">die böse Angelina</div>
+            <div class="dropzone" data-person="person5">ein Kind von Sandra</div>
+            <div class="dropzone" data-person="person6">Celine</div>
+            <div class="dropzone" data-person="person7">Kaan</div>
+            <div class="dropzone" data-person="person8">deine Maus</div>
+            <div class="dropzone" data-person="person9">Mama</div>
+            <div class="dropzone" data-person="person10">Jürgen</div>
+            <div class="dropzone" data-person="person11">du selbst!</div>
+            <div class="dropzone" data-person="person12">Marco</div>
+            <div class="dropzone" data-person="person13">Sammy</div>
+            <div class="dropzone" data-person="person14">Nico</div>
+            <div class="dropzone" data-person="person15">Oma Heide</div>
+            <div class="dropzone" data-person="person16">Mo</div>
+            <div class="dropzone" data-person="person17">Oma Hertha</div>
+            <div class="dropzone" data-person="person18">Opa</div>
+            <div class="dropzone" data-person="person19">deine Lieblingsschwester</div>
+            <div class="dropzone" data-person="person20">Megathron</div>
+            <div class="dropzone" data-person="person21">Melina</div>
+        </div>
+    </div>
+
+    <!-- Audio mit Applaus -->
+    <audio id="applauseAudio">
+        <source src="./media/applause.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Drag and Drop Logik
+        const draggables = document.querySelectorAll('.draggable');
+        const dropzones = document.querySelectorAll('.dropzone');
+        let correctCount = 0;
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text', e.target.id);
+            });
+        });
+
+        dropzones.forEach(dropzone => {
+            dropzone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const draggedId = e.dataTransfer.getData('text');
+                const targetPerson = e.target.getAttribute('data-person');
+
+                if (draggedId === targetPerson) {
+                    const draggedElement = document.getElementById(draggedId);
+                    e.target.appendChild(draggedElement);
+                    e.target.classList.add('correct');
+                    correctCount++;
+
+                    // Prüfen, ob alle Zuordnungen richtig sind
+                    if (correctCount === draggables.length) {
+                        document.getElementById('applauseAudio').play();
+                    }
+                }
+            });
+        });
+    </script>
+
+    <h2 style="margin-top: 100px">Spiel 2: Wie lang ist die Lügenbärnase...</h2>
+    <p>...wenn Papa sagt, dass er nur kurz zu Zoran geht?</p>
+
+    <div class="nose-container">
+        <img src="./media/papaluge.png" class="nose-image" style="height: 400px;" alt="Lügenbär">
+        <!-- Die Lügenbärnase, deren Breite sich durch den Slider ändert -->
+        <div id="noseBar" class="nose-bar" style="width: 100px;"></div>
+    </div>
+
+    <div class="slider-container">
+        <label for="noseSlider">Ziehe den Schieberegler, um die Länge der Lügenbärnase anzupassen:</label><br>
+        <input type="range" id="noseSlider" min="50" max="400" value="100">
+    </div>
+
+    <script>
+        const noseBar = document.getElementById('noseBar');
+        const noseSlider = document.getElementById('noseSlider');
+
+        // Ändere die Breite der Nase basierend auf dem Slider-Wert
+        noseSlider.addEventListener('input', function () {
+            const newWidth = noseSlider.value;
+            noseBar.style.width = `${newWidth}px`;
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizzys Spielwiese</title>
+
+    <!-- PrimeIcons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css" rel="stylesheet">
+
+    <!-- Confetti.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #42184f;
+        }
+
+        h1 {
+            color: #cb6f39;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #9240bb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border-radius: 30px;
+        }
+
+        button .pi {
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hallo du kranke Maus!</h1><br>
+    <p style="color: white">Dass dir nicht so langweilig ist, hab ich dir eine kleine Spielwiese gemacht:</p>
+
+    <button onclick="openNewPage()">
+        Hier geht's loos wuhuu
+        <i class="pi pi-arrow-right"></i>
+    </button>
+
+    <script>
+        // Konfetti-Effekt bei Seitenladung
+        window.onload = function () {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff8c00', '#ffa500', '#ffcc00'],
+                ticks: 200
+            });
+        };
+
+        // Funktion zum Öffnen der neuen Seite
+        function openNewPage() {
+            window.location.href = 'content.html'; // Neue Seite wird geöffnet
+        }
+    </script>
+
+</body>
+
+</html>
